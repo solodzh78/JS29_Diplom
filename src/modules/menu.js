@@ -41,7 +41,7 @@ const menu = () => {
     const target = e.target;
 
     if (target.classList.contains('__full-price')) {
-      showFullPrice();
+      showFullPrice(e);
     } else if (target.classList.contains('menu-link')) {
       smoothScroll(e);
     }
