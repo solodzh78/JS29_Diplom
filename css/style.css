@@ -1515,6 +1515,11 @@ template, [hidden] {
     }
 }
 
+.formula-item-popup-reverse:before {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
 .repair-types {
     position: relative;
     padding: 100px 0;
