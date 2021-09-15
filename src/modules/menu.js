@@ -1,41 +1,62 @@
 const menu = () => {
-const popupMenu = document.querySelector('.popup-menu');
-const popupDialogMenu = document.querySelector('.popup-dialog-menu');
-const menuBtn = document.querySelector('.menu__icon');
+  const popupMenu = document.querySelector('.popup-menu');
+  const popupDialogMenu = document.querySelector('.popup-dialog-menu');
+  const menuBtn = document.querySelector('.menu__icon');
+  const buttonFooter = document.querySelector('.button-footer');
+  const popupRepairTypes = document.querySelector('.popup-repair-types');
+  const fullPprice1 = document.querySelector('.__full-price1');
 
-// console.log('menu: ', popupMenu);
+  const toggleMenu = () => {
+    popupDialogMenu.classList.toggle('showHide-menu');
 
-const showMenu = () => {
+    if (popupMenu.style.visibility === 'visible') {
+      popupMenu.style.visibility = 'hidden';
+    } else {
+      popupMenu.style.visibility = 'visible';
+    }
+  };
 
-	// if (window.innerWidth > 1024) {
-	// 	popupDialogMenu.style.right = '639px';
-	// } else {
-	// 	popupDialogMenu.style.right = '549px';
-	// }
-};
+  const smoothScroll = e => {
+    const target = e.target;
+    e.preventDefault();
+    document.querySelector(target.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
 
-const toggleMenu = () => {
-	// showMenu();
-	popupDialogMenu.classList.toggle('showHide-menu');
-	if (	popupMenu.style.visibility === 'visible') {
-		popupMenu.style.visibility = 'hidden';
-	} else {
-		popupMenu.style.visibility = 'visible';
-	}
-	
-};
+  const showFullPrice = e => {
+    e.preventDefault();
+    popupRepairTypes.style.visibility = 'visible';
+    popupRepairTypes.addEventListener('click', e => {
+      const target = e.target;
+      if (target.classList.contains('close') ||
+        !target.closest('.popup-dialog')) {
+        popupRepairTypes.style.visibility = 'hidden';
+      }
+    });
+  };
 
-popupMenu.addEventListener('click', e => {
-	const target = e.target;
-	console.log('target: ', target);
-	if (target.classList.contains('close-menu') 
-	|| target.classList.contains('menu-link')
-	|| (!target.closest('.popup-dialog-menu'))) {
-		toggleMenu();
-	}
-});
+  popupMenu.addEventListener('click', e => {
+    const target = e.target;
 
-menuBtn.addEventListener('click', toggleMenu);
+    if (target.classList.contains('__full-price')) {
+      showFullPrice();
+    } else if (target.classList.contains('menu-link')) {
+      smoothScroll(e);
+    }
+
+    if (target.classList.contains('close-menu') ||
+    target.classList.contains('menu-link') ||
+    target.classList.contains('__full-price') ||
+    (!target.closest('.popup-dialog-menu'))) {
+      toggleMenu();
+    }
+  });
+
+  menuBtn.addEventListener('click', toggleMenu);
+  buttonFooter.addEventListener('click', smoothScroll);
+  fullPprice1.addEventListener('click', showFullPrice);
 
 };
 
