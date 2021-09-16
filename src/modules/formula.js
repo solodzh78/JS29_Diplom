@@ -22,7 +22,6 @@ const formula = () => {
         description.classList.add('formula-item-popup-reverse');
         description.style.bottom = 0 - descrHiegth + 'px';
       }
-      console.log(description.getBoundingClientRect().bottom - description.getBoundingClientRect().top);
       description.style.visibility = 'visible';
       description.style.opacity = 1;
     });

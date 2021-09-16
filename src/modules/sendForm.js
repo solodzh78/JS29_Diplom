@@ -18,6 +18,27 @@ const sendFormAll = () => {
   const sendForm = form => {
     const privacy = form.querySelector('.checkbox__input');
     const linkPrivacy = form.querySelector('.link-privacy');
+    const nameField = form.querySelector('[name="name"]') || 0;
+
+    if (nameField) {
+      nameField.addEventListener('input', e => {
+        e.target.value = e.target.value.replace(/[^А-Яа-яёЁ ]/g, '');
+      });
+      nameField.addEventListener('blur', e => {
+        e.target.value = e.target.value.replace(/^-+|^ +|-+$| +$|[^А-Яа-яёЁ -]/g, '');
+        e.target.value = e.target.value.replace(/--+/g, '-');
+        e.target.value = e.target.value.replace(/ +/g, ' ');
+        if (e.target.value) {
+          e.target.value = e.target.value.split(' ').
+            reduce((akk, elem) => {
+              if (elem.length > 1) {
+                const newWord = elem[0].toUpperCase() + elem.slice(1).toLowerCase();
+                return akk + ' ' + newWord;
+              } else return akk;
+            }, '');
+        }
+      });
+    }
 
     form.addEventListener('submit', e => {
       e.preventDefault();
