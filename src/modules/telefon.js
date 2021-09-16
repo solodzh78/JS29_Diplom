@@ -15,7 +15,6 @@ const telefon = () => {
   };
 
   arrow.addEventListener('click', toggleTel);
-  // console.dir(tel);
 
 };
 
