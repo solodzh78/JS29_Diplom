@@ -1,34 +1,36 @@
 const formula = () => {
   const formula = document.getElementById('formula');
   const formulaItem = formula.querySelectorAll('.formula-item__icon');
-  const frame = document.querySelector('.formula-item-popup:before');
-  console.log('frame: ', frame);
 
-  formula.addEventListener('click', e => console.log(e.target));
   formulaItem.forEach(elem => {
     let element;
     let description;
-    let frame;
-    console.dir(elem);
 
-    if (elem.classList.contains('mobile-hide')) {
+    if (elem.closest('.mobile-hide')) {
       element = elem;
-      description = element.firstElementChild.style;
+      description = element.firstElementChild;
     } else {
       element = elem.parentElement;
-      description = element.firstElementChild.firstElementChild.style;
+      description = element.firstElementChild.firstElementChild;
     }
-    // description.classList.toggle('formula-item-popup-reverse');
 
-    element.addEventListener('mouseenter', e => {
-      description.visibility = 'visible';
-      description.opacity = 1;
-      elem.firstElementChild.classList.toggle('formula-item-popup-reverse');
+    element.addEventListener('mouseenter', () => {
+
+      const descrHiegth = 20 + description.getBoundingClientRect().bottom - description.getBoundingClientRect().top;
+
+      if (element.getBoundingClientRect().top < descrHiegth) {
+        description.classList.add('formula-item-popup-reverse');
+        description.style.bottom = 0 - descrHiegth + 'px';
+      }
+      console.log(description.getBoundingClientRect().bottom - description.getBoundingClientRect().top);
+      description.style.visibility = 'visible';
+      description.style.opacity = 1;
     });
-    element.addEventListener('mouseleave1', e => {
-      console.log(e.target);
-      description.visibility = 'hidden';
-      description.opacity = 0.1;
+    element.addEventListener('mouseleave', () => {
+      elem.firstElementChild.classList.remove('formula-item-popup-reverse');
+      description.style.bottom = '90px';
+      description.style.visibility = 'hidden';
+      description.style.opacity = 0.1;
     });
   });
 
