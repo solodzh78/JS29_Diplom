@@ -3,6 +3,12 @@ const portfolio = () => {
 
   const desktopSlider = () => {
 
+    const portfolioSlider = document.querySelector('.portfolio-slider');
+
+    const openPopup = () => {
+
+    };
+
     const getSlideNumerPerView = () => {
       if (window.innerWidth >= 1140) {
         return 3;
@@ -25,6 +31,7 @@ const portfolio = () => {
     };
 
     window.addEventListener(`resize`, changeSlideNumerPerView);
+    portfolioSlider.addEventListener('click', openPopup);
 
   };
 
