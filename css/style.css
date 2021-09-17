@@ -2306,11 +2306,11 @@ div.wave-block:nth-child(17):after {
     position: relative;
 }
 
-@media (min-width: 901px) {
+/* @media (min-width: 901px) {
     .portfolio-slider__slide-frame {
         width: 100%;
     }
-}
+} */
 
 .portfolio-slider__slide-frame:before {
     position: absolute;
@@ -8197,9 +8197,15 @@ div.wave-block:nth-child(17):after {
     }
 }
 
-/* #portfolio-arrow_left {
+#portfolio-arrow_left.swiper-button-disabled {
+    opacity: 0;
     display: none;
-} */
+}
+
+#portfolio-arrow_right.swiper-button-disabled {
+    opacity: 0;
+    display: none;
+}
 
 @media (max-width: 900px) {
     #portfolio-arrow_left {
