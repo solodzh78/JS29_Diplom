@@ -7441,6 +7441,7 @@ div.wave-block:nth-child(17):after {
     background: #F4F4F4;
     -webkit-box-shadow: 0px 0px 10px rgba(50, 40, 35, 0.1);
     box-shadow: 0px 0px 10px rgba(50, 40, 35, 0.1);
+    z-index: 1;
 }
 
 .slider-counter-content {

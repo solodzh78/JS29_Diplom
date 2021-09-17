@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 const portfolio = () => {
 
   const desktopSlider = () => {
@@ -32,6 +33,10 @@ const portfolio = () => {
       pagination: {
         el: ".swiper-pagination",
         type: "fraction",
+        renderFraction: function(currentClass, totalClass) {
+          return '<div class="slider-counter-content__current ' + currentClass + '"></div>' +
+          '<div class="slider-counter-content__total ' + totalClass + '"></div>';
+        }
       },
       navigation: {
         nextEl: "#portfolio-arrow-mobile_right",
