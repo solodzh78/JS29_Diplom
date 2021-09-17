@@ -8197,9 +8197,9 @@ div.wave-block:nth-child(17):after {
     }
 }
 
-#portfolio-arrow_left {
+/* #portfolio-arrow_left {
     display: none;
-}
+} */
 
 @media (max-width: 900px) {
     #portfolio-arrow_left {
@@ -8212,6 +8212,10 @@ div.wave-block:nth-child(17):after {
         right: -50px;
     }
 }
+.portfolio-desktop-slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease 0s;
+};
 
 #reviews-arrow_left {
     top: 75%;
