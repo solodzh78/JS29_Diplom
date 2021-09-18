@@ -7233,7 +7233,7 @@ div.wave-block:nth-child(17):after {
         min-width: 3130px;
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        /* display: flex; */
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         max-width: 100%;
@@ -7243,6 +7243,8 @@ div.wave-block:nth-child(17):after {
 @media (max-width: 575px) {
     .nav-list-popup-repair {
         min-width: 2840px;
+        display: flex;
+
     }
 }
 
@@ -7647,6 +7649,10 @@ div.wave-block:nth-child(17):after {
     cursor: pointer;
     background: transparent;
     background-size: contain;
+}
+
+.button_o.active {
+    border-color: #ffb015 !important;
 }
 
 .button_o svg {
