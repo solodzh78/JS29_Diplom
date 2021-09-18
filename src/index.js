@@ -8,6 +8,7 @@ import portfolio from './modules/portfolio';
 import documents from './modules/documents';
 import consultation from './modules/consultation';
 import reviews from './modules/reviews';
+import faq from './modules/faq';
 
 telefon();
 menu();
@@ -19,3 +20,4 @@ portfolio();
 documents();
 consultation();
 reviews();
+faq();
