@@ -5,6 +5,7 @@ import sendFormAll from './modules/sendForm';
 import formula from './modules/formula';
 import slider from './modules/slider';
 import portfolio from './modules/portfolio';
+import documents from './modules/documents';
 
 telefon();
 menu();
@@ -13,4 +14,4 @@ sendFormAll();
 formula();
 slider();
 portfolio();
-
+documents();
