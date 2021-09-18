@@ -9,6 +9,8 @@ import documents from './modules/documents';
 import consultation from './modules/consultation';
 import reviews from './modules/reviews';
 import faq from './modules/faq';
+import fullPrice from './modules/fullPrice';
+
 
 telefon();
 menu();
@@ -21,3 +23,4 @@ documents();
 consultation();
 reviews();
 faq();
+fullPrice();

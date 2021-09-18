@@ -4,7 +4,7 @@ const menu = () => {
   const menuBtn = document.querySelector('.menu__icon');
   const buttonFooter = document.querySelector('.button-footer');
   const popupRepairTypes = document.querySelector('.popup-repair-types');
-  const fullPprice1 = document.querySelector('.__full-price1');
+  const fullPprice1 = document.querySelectorAll('.link-list-repair');
 
   const toggleMenu = () => {
     popupDialogMenu.classList.toggle('showHide-menu');
@@ -56,7 +56,9 @@ const menu = () => {
 
   menuBtn.addEventListener('click', toggleMenu);
   buttonFooter.addEventListener('click', smoothScroll);
-  fullPprice1.addEventListener('click', showFullPrice);
+  fullPprice1.forEach(elem => {
+    elem.addEventListener('click', showFullPrice);
+  });
 
 };
 
