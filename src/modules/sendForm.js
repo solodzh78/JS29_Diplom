@@ -1,6 +1,7 @@
 const sendFormAll = () => {
   const forms = document.querySelectorAll('form');
   const popupPrivacy = document.querySelector('.popup-privacy');
+  const popupThank = document.querySelector('.popup-thank');
 
   const openPrivacyPopup = () => {
     popupPrivacy.style.visibility = 'visible';
@@ -14,6 +15,20 @@ const sendFormAll = () => {
       popupPrivacy.style.visibility = 'hidden';
     }
   };
+
+  const showMessage = () => {
+    popupThank.style.visibility = 'visible';
+  };
+
+  const closePopup = e => {
+    const target = e.target;
+    if (target.closest('.close') ||
+      !target.closest('.popup-thank-bg')) {
+      popupThank.style.visibility = 'hidden';
+    }
+  };
+
+  popupThank.addEventListener('click', closePopup);
 
   const sendForm = form => {
     const privacy = form.querySelector('.checkbox__input');
@@ -64,6 +79,7 @@ const sendFormAll = () => {
           if (response.status !== 200) {
             throw new Error('Status network not 200');
           }
+          showMessage();
         })
         .catch(error => {
           console.error(error);
