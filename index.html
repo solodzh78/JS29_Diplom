@@ -598,43 +598,43 @@
 			<div class="portfolio-slider-wrap">
 				<div class="portfolio-slider-mobile tablet-hide desktop-hide">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "0" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_1.jpg" alt="img_1">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "1" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_2.jpg" alt="img_2">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "2" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_3.jpg" alt="img_3">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "3" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_4.jpg" alt="img_4">
 							<div class="item-hover"></div>
 						</div><!-- /portfolio-slider__slide -->
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "4" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_5.jpg" alt="img_5">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "5" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_6.jpg" alt="img_6">
 							<div class="item-hover"></div>
 						</div><!-- /portfolio-slider__slide -->
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "6" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_4.jpg" alt="img_1">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "7" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_3.jpg" alt="img_2">
 							<div class="item-hover"></div>
 						</div><!-- /portfolio-slider__slide -->
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "8" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_2.jpg" alt="img_3">
 							<div class="item-hover"></div>
 						</div>
-						<div class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
+						<div num = "9" class="swiper-slide portfolio-slider__slide-frame"><img class="portfolio-slider__slide-frame-img"
 								src="./images/portfolio/img_1.jpg" alt="img_4">
 							<div class="item-hover"></div>
 						</div><!-- /portfolio-slider__slide -->
@@ -1836,20 +1836,21 @@
 						</svg>
 					</div>
 					<div class="popup-portfolio-slider">
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/1.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/2.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/3.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/4.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/5.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/6.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/4.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/3.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/2.jpg" alt=""></div>
-						<div class="popup-portfolio-slider__slide"><img src="./images/popup/1.jpg" alt=""></div>
-						<!-- /popup-portfolio-slide -->
-					</div>
+						<div class="swiper-wrapper">
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/1.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/2.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/3.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/4.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/5.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/6.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/4.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/3.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/2.jpg" alt=""></div>
+							<div class="swiper-slide popup-portfolio-slider__slide"><img src="./images/popup/1.jpg" alt=""></div>
+						</div><!-- /swiper-wrapper -->
+					</div><!-- /popup-portfolio-slider -->
 					<div class="slider-counter" id="popup-portfolio-counter">
-						<div class="slider-counter-content">
+						<div class="slider-counter-content" id="swiper-pagination">
 							<div class="slider-counter-content__current">1</div>
 							<div class="slider-counter-content__total">3</div>
 						</div>

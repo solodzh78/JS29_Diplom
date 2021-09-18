@@ -5932,6 +5932,7 @@ div.wave-block:nth-child(17):after {
 .popup-portfolio-slider {
     position: relative;
     height: 100%;
+    overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -7345,6 +7346,7 @@ div.wave-block:nth-child(17):after {
     height: 40px;
     top: 50%;
     margin-top: -20px;
+    z-index: 1;
 }
 
 .popup-arrow svg path {
@@ -8914,6 +8916,13 @@ strong {
 
 .hide {
     display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 576px) {
+    .popup-portfolio-text.show {
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
 }
 
 @media (max-width: 575px) {
