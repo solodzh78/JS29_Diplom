@@ -7,6 +7,7 @@ import slider from './modules/slider';
 import portfolio from './modules/portfolio';
 import documents from './modules/documents';
 import consultation from './modules/consultation';
+import reviews from './modules/reviews';
 
 telefon();
 menu();
@@ -17,3 +18,4 @@ slider();
 portfolio();
 documents();
 consultation();
+reviews();

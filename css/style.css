@@ -8221,10 +8221,11 @@ div.wave-block:nth-child(17):after {
         right: -50px;
     }
 }
+
 .portfolio-desktop-slider-wrapper {
     display: flex;
     transition: transform 0.3s ease 0s;
-};
+}
 
 #reviews-arrow_left {
     top: 75%;
