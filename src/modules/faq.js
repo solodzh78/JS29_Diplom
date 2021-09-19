@@ -3,7 +3,13 @@ const faq = () => {
 
   const switchTabs = e => {
     const target = e.target;
-    target.classList.toggle('msg-active');
+    console.log('target: ', target.parentElement);
+    // target.classList.toggle('msg-active');
+    questions.forEach(elem => {
+      if (elem.firstElementChild === target) {
+        elem.firstElementChild.classList.add('msg-active');
+      } else elem.firstElementChild.classList.remove('msg-active');
+    });
   };
 
   questions.forEach(elem => {

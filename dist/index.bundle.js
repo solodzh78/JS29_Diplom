@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar faq = function faq() {\n  var questions = document.querySelectorAll('#faq > div > div.accordion > ul > li');\n\n  var switchTabs = function switchTabs(e) {\n    var target = e.target;\n    target.classList.toggle('msg-active');\n  };\n\n  questions.forEach(function (elem) {\n    elem.firstElementChild.addEventListener('click', switchTabs);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (faq);\n\n//# sourceURL=webpack://Diplom/./src/modules/faq.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar faq = function faq() {\n  var questions = document.querySelectorAll('#faq > div > div.accordion > ul > li');\n\n  var switchTabs = function switchTabs(e) {\n    var target = e.target;\n    console.log('target: ', target.parentElement); // target.classList.toggle('msg-active');\n\n    questions.forEach(function (elem) {\n      if (elem.firstElementChild === target) {\n        elem.firstElementChild.classList.add('msg-active');\n      } else elem.firstElementChild.classList.remove('msg-active');\n    });\n  };\n\n  questions.forEach(function (elem) {\n    elem.firstElementChild.addEventListener('click', switchTabs);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (faq);\n\n//# sourceURL=webpack://Diplom/./src/modules/faq.js?");
 
 /***/ }),
 
@@ -607,7 +607,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("3e5dc8849810cded6679")
+/******/ 		__webpack_require__.h = () => ("c82b49bc5e9a0f5e29ad")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
