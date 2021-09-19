@@ -36,7 +36,6 @@ const auth = () => {
 
     if (name.value === user && password.value === userPassword) {
       setCookie('userStatus', 'Залогинен');
-      setCookie('password', password.value);
       form.reset();
       document.location.href = './table.html';
       return;

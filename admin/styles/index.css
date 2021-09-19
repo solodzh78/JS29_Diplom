@@ -700,8 +700,8 @@ body {
     width: 17px;
     height: 17px;
     fill: var(--txt_grey);
-<<<<<<< HEAD
 }
-=======
+
+.hide {
+    display: none;
 }
->>>>>>> admin03
