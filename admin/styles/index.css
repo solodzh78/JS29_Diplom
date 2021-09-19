@@ -529,10 +529,6 @@ body {
 
 /*   Модальное окно   */
 
-#modal {
-    display: none;
-}
-
 .modal {
     display: flex;
     flex-direction: column;
@@ -582,4 +578,8 @@ body {
 
 .hide {
     display: none;
+}
+
+.show {
+    display: flex;
 }

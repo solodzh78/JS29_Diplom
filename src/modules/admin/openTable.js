@@ -2,8 +2,11 @@
 const openTable = () => {
   const user = 'admin';
   const userPassword = '111111';
-  const table = document.getElementById('table'); 
+  const table = document.getElementById('table');
   const selectType = document.getElementById('typeItem');
+  const modal = document.getElementById('modal');
+  const form = modal.querySelector('form');
+  const btnAddItem = document.querySelector('.btn-addItem');
 
   function getCookie(name) {
     const matches = document.cookie.match(new RegExp(
@@ -67,11 +70,65 @@ const openTable = () => {
       table.innerHTML = tableInnerHtml;
     };
 
+    const editData = e => {
+      const target = e.target.closest('.table__row');
+      console.dir(target);
+    };
+
+    const clickTable = e => {
+      if (e.target.closest('.action-change')) editData(e);
+    };
+
+    const closeModal = e => {
+      const target = e.target;
+      if (target.closest('.button__close') ||
+      target.closest('.cancel-button') ||
+      !target.closest('.modal')) {
+        e.preventDefault();
+        modal.classList.add('hide');
+      }
+    };
+
+    const postData = body => fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const sendData = e => {
+      e.preventDefault();
+      const body = {};
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(elem => {
+        body[elem.id] = elem.value;
+      });
+      postData(body)
+        .then(response => {
+
+          if (response.status !== 200) {
+            throw new Error('Status network not 200');
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
+    };
+
     makeSelect(workTypes);
     renderTable(data, 'all');
     selectType.addEventListener('change', () => {
       renderTable(data, selectType.value);
     });
+    btnAddItem.addEventListener('click', () => {
+      modal.classList.remove('hide');
+    });
+    modal.addEventListener('click', closeModal);
+    form.addEventListener('submit', sendData);
+    table.addEventListener('click', clickTable);
+    // form.querySelector('.button button-ui_firm').addEventListener('click', sendData);
 
   };
   getData()
