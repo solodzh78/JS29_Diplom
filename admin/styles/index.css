@@ -579,7 +579,3 @@ body {
     height: 17px;
     fill: var(--txt_grey);
 }
-
-.hide {
-    display: none;
-}
