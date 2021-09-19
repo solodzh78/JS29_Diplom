@@ -30,8 +30,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/env']
-          },
+            presets: ['@babel/env'],
+            plugins: [
+              ["@babel/transform-runtime"]
+            ]
+          }
         },
         exclude: /node_modules/,
       }
