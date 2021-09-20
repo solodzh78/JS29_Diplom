@@ -1,12 +1,12 @@
 /* eslint-disable no-useless-escape */
 const openTable = () => {
 
-  function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
+  const getCookie = name => {
+    const matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
-  }
+  };
 
   const makeRequest = (typeOfReq, distination, body) => {
     if (typeOfReq === "GET") {
@@ -16,15 +16,14 @@ const openTable = () => {
         return fetch(distination, { method: typeOfReq, mode: 'cors' });
       else
         return new Promise((res, rej) => { });
-    }
-    else {
+    } else {
       return fetch(distination, {
         method: typeOfReq,
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
         mode: 'cors',
-        body: body
+        body
       });
     }
   };
@@ -32,13 +31,13 @@ const openTable = () => {
   let data, searchName = '';
 
   const createTable = data => {
-    let listOfTypes = new Set();
+    const listOfTypes = new Set();
     const tbody = document.getElementById('tbody');
     tbody.classList.remove("fade-in");
     tbody.textContent = "";
     data.forEach(item => {
-      tbody.insertAdjacentHTML('beforeend', `
-              <tr class="table__row">
+      tbody.insertAdjacentHTML('beforeend',
+        `<tr class="table__row">
           <td class="table__id table__cell">${item.id}</td>
           <td class="table-type table__cell">${item.type.trim()}</td>
           <td class="table-name table__cell">
@@ -58,13 +57,13 @@ const openTable = () => {
               </button>
             </div>
           </td>
-        </tr>
-          `);
+        </tr>`
+      );
       setTimeout(() => tbody.classList.add("fade-in"), 100);
       listOfTypes.add(item.type.trim());
     });
     return listOfTypes;
-  }
+  };
   const filterByType = (data, type) => {
     if (type !== "Все услуги")
       data = data.filter(item => item.type.trim() === type);
@@ -74,19 +73,15 @@ const openTable = () => {
   const createTypesList = (listOfTypes, data) => {
     const selectType = document.getElementById('typeItem');
     selectType.textContent = "";
-    selectType.insertAdjacentHTML('beforeend', `
-          <option value="Все услуги">Все услуги</option>
-      `);
+    selectType.insertAdjacentHTML('beforeend', `<option value="Все услуги">Все услуги</option>`);
     listOfTypes = [...listOfTypes].sort();
     listOfTypes.forEach(item => {
-      selectType.insertAdjacentHTML('beforeend', `
-              <option value="${item}">${item}</option>
-          `);
+      selectType.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`);
     });
     selectType.addEventListener('change', () => {
       filterByType(data, selectType.value);
     });
-  }
+  };
 
   const update = async () => {
     data = await makeRequest("GET", "http://localhost:3000/api/items")
@@ -112,28 +107,24 @@ const openTable = () => {
       numFlag = true;
     }
     const sortFunc = (a, b) => {
-      let res;
       let an = a[select], bn = b[select];
       if (numFlag) {
         if (typeof a[select] === "string") an = +a[select].replace(/\D+/, '');
         if (typeof b[select] === "string") bn = +b[select].replace(/\D+/, '');
       }
-      res = an < bn ? 1 : -1;
+      const res = an < bn ? 1 : -1;
       return sortType ? res : -res;
-    }
+    };
     data = data.sort(sortFunc);
     createTable(data);
   };
 
-  const handleErrors = (response) => {
+  const handleErrors = response => {
     if (!response.ok) {
       throw Error(response.statusText);
     }
     return response;
-  }
-  const isInt = (n) => {
-    return Number(n) === n && n % 1 === 0;
-  }
+  };
 
   const addListeners = () => {
     const addBtn = document.querySelector('.btn-addItem'),
@@ -156,7 +147,9 @@ const openTable = () => {
     });
 
     modal.addEventListener('click', e => {
-      if (e.target.closest('.button__close') || e.target.closest('.cancel-button') || e.target.matches('.modal__overlay')) {
+      if (e.target.closest('.button__close') ||
+      e.target.closest('.cancel-button') ||
+      e.target.matches('.modal__overlay')) {
         modal.querySelector('form').reset();
         modal.style.display = "none";
       }
@@ -195,7 +188,7 @@ const openTable = () => {
 
     tbody.addEventListener('click', async e => {
       let target = e.target.closest(".action-change");
-      if (target) {
+      if (e.target.closest(".action-change")) {
         const inputs = modal.querySelectorAll(".input"),
           id = target.closest('.table__row').querySelector('.table__id').textContent;
         dist = `http://localhost:3000/api/items/${id}`;
@@ -212,7 +205,7 @@ const openTable = () => {
         });
         return;
       }
-      target = e.target.closest(".action-remove")
+      target = e.target.closest(".action-remove");
       if (target) {
         const id = target.closest('.table__row').querySelector('.table__id').textContent;
         dist = `http://localhost:3000/api/items/${id}`;
@@ -254,8 +247,6 @@ const openTable = () => {
     const params = (new URL(document.location)).searchParams;
     searchName = decodeURI(params.get("search"));
     update();
-
-
     addListeners();
   };
   init();

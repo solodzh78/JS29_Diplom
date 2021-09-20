@@ -5,8 +5,7 @@ const auth = () => {
   const user = 'admin';
   const userPassword = '111111';
 
-  function setCookie(name, value, options = {}) {
-
+  const setCookie = (name, value, options = {}) => {
     options = {
       path: '/',
       ...options
@@ -15,19 +14,18 @@ const auth = () => {
     if (options.expires instanceof Date) {
       options.expires = options.expires.toUTCString();
     }
-
     let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
 
     for (const optionKey in options) {
       updatedCookie += "; " + optionKey;
       const optionValue = options[optionKey];
+
       if (optionValue !== true) {
         updatedCookie += "=" + optionValue;
       }
     }
-
     document.cookie = updatedCookie;
-  }
+  };
 
   const checkPass = e => {
     name.nextElementSibling.classList.add('hide');

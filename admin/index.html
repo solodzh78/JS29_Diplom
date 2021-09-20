@@ -7,24 +7,25 @@
 	<title>Вход</title>
 	<link rel="stylesheet" href="styles/index.css">
 	<script src="./../dist/admin.bundle.js" defer></script>
-
 </head>
+<!-- body -->
 <body class="body-auth">
 	<main class="main-auth">
 		<section class="main-form">
 			<h1 class="main-header">Введите Имя и Пароль</h1>
+			<!-- Form -->
 			<form id="form1">
-
+				<!-- name -->
 				<label class="label">
 					<input type="text"  id="name" class="input input-mb" placeholder="Имя" autocomplete="username">
 					<span class="hide text-warning">Не верное имя</span>
 				</label>
-
+				<!-- password -->
 				<label class="label">
 					<input type="password" id="password" class="input" placeholder="Пароль" autocomplete="current-password">
 					<span class="hide text-warning">Не верный пароль</span>
 				</label>
-
+				<!-- submit -->
 				<button type="submit" class="button button-ui_firm"><span>Войти</span></button>
 			</form>
 		</section>
