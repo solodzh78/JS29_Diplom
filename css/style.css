@@ -8989,3 +8989,7 @@ strong {
 .slider-dots {
     display: none;
 }
+
+.formula-slider.swiper-initialized {
+    overflow: hidden;
+}

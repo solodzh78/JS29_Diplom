@@ -1,16 +1,16 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    admin: './src/admin.js',
-    table: './src/table.js'
+    index: "./src/index.js",
+    admin: "./src/admin.js",
+    table: "./src/table.js",
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, './dist'),
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "./dist"),
   },
-  mode: 'development',
+  mode: "development",
   devServer: {
     open: true,
     port: 8080,
@@ -19,22 +19,22 @@ module.exports = {
       writeToDisk: true,
     },
     static: {
-      directory: __dirname,
+      directory: path.resolve(__dirname),
       watch: true,
-    }
+    },
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/env']
+            presets: ["@babel/env"],
           },
         },
         exclude: /node_modules/,
-      }
-    ]
-  }
+      },
+    ],
+  },
 };

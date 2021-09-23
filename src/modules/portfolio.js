@@ -29,6 +29,7 @@ const portfolio = () => {
       prevEl: ".slider-arrow_left-portfolio",
     },
   });
+  console.log("swiper: ", swiper);
 
   const swiperPopup = new Swiper('.popup-portfolio-slider', {
     pagination: {

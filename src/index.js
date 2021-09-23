@@ -10,6 +10,7 @@ import consultation from './modules/consultation';
 import reviews from './modules/reviews';
 import faq from './modules/faq';
 import fullPrice from './modules/fullPrice';
+import formulaSlider from './modules/formula_slider';
 
 
 telefon();
@@ -24,3 +25,4 @@ consultation();
 reviews();
 faq();
 fullPrice();
+formulaSlider();

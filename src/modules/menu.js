@@ -18,6 +18,8 @@ const menu = () => {
 
   const smoothScroll = e => {
     const target = e.target;
+    console.log('href', target.getAttribute('href'));
+
     e.preventDefault();
     document.querySelector(target.getAttribute('href')).scrollIntoView({
       behavior: 'smooth',
